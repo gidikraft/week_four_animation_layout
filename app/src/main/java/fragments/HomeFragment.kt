@@ -54,10 +54,9 @@ class HomeFragment : Fragment() {
         val arrayList = ArrayList<Model>()
 
         arrayList.add(Model("Seun Android", "11.12.2021", "2 days to go", R.drawable.vector1))
-        arrayList.add(Model("Akeem Android", "12.09.2021", "3 days to go", R.drawable.vector2))
-        arrayList.add(Model("Miracle Android", "30.06.2021", "4 days to go", R.drawable.vector3))
-        arrayList.add(Model("Shak Android", "28.02.2021", "5 days to go", R.drawable.vector4))
-//        arrayList.add(Model("Dubem Android", "15.06.2021", "6 days to go", R.drawable.image5 ))
+        arrayList.add(Model("Akeem Android", "12.09.2021", "30 days to go", R.drawable.vector2))
+        arrayList.add(Model("Miracle Android", "30.06.2021", "214 days to go", R.drawable.vector3))
+        arrayList.add(Model("Shak Android", "28.02.2021", "98 days to go", R.drawable.vector4))
 
         val myAdapter = this.context?.let { MyRecyclerViewAdapter (arrayList, it) }
 

@@ -5,7 +5,7 @@
     android:padding="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="fragments.HomeFragment">
-
+<!--  linear layout as container for heading layout  -->
     <LinearLayout
         android:id="@+id/heading_layout"
         android:layout_width="match_parent"
@@ -41,6 +41,7 @@
             android:scaleType="fitEnd"
             android:src="@drawable/ic_notification_icon" />
     </LinearLayout>
+<!--  scroll view to scroll through page content  -->
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -48,11 +49,11 @@
         app:layout_constraintTop_toBottomOf="@id/heading_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         >
-
+<!--  constraint layout to organize components in scrollView  -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+<!--  searchView on top of viewPager  -->
             <SearchView
                 android:id="@+id/search_view"
                 android:layout_width="match_parent"
@@ -64,6 +65,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/view_pager"
                 />
+<!--     viewPager to add slide effects to images       -->
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
                 android:layout_width="306dp"
@@ -72,7 +74,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="15dp"/>
-
+<!--  text to describe list content below  -->
             <TextView
                 android:id="@+id/upcoming_birthdays"
                 android:layout_width="wrap_content"
@@ -84,7 +86,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/view_pager" />
-
+<!--  a list of upcoming birthdays  -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
@@ -94,8 +96,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-
+<!--  floating birthday to add a new celebrant to the list  -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

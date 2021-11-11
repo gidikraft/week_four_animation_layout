@@ -16,26 +16,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+// call function to initiate homeFragment as welcome page
         replaceFragment(homeFragment)
-
+//setOnClickListener to call home button when clicked
         val home = findViewById<BottomNavigationItemView>(R.id.home)
         home.setOnClickListener{
             replaceFragment(homeFragment)
         }
-
+//setOnClickListener to call people button when clicked
         val people = findViewById<BottomNavigationItemView>(R.id.people)
         people.setOnClickListener{
             replaceFragment(peopleFragment)
         }
-
+//setOnClickListener to call gift button when clicked
         val gift = findViewById<BottomNavigationItemView>(R.id.gift)
         gift.setOnClickListener{
             replaceFragment(giftFragment)
         }
 
     }
-
+//function to replace fragment
     private fun replaceFragment(fragment: Fragment){
         if (fragment != null){
             val transaction = supportFragmentManager.beginTransaction()
