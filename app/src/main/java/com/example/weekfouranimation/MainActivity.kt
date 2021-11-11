@@ -4,13 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import fragments.GiftFragment
 import fragments.HomeFragment
 import fragments.PeopleFragment
 
 class MainActivity : AppCompatActivity() {
-
     private var homeFragment = HomeFragment()
     private var peopleFragment = PeopleFragment()
     private var giftFragment = GiftFragment()
@@ -21,17 +19,17 @@ class MainActivity : AppCompatActivity() {
 
         replaceFragment(homeFragment)
 
-        var home = findViewById<BottomNavigationItemView>(R.id.home)
+        val home = findViewById<BottomNavigationItemView>(R.id.home)
         home.setOnClickListener{
             replaceFragment(homeFragment)
         }
 
-        var people = findViewById<BottomNavigationItemView>(R.id.people)
+        val people = findViewById<BottomNavigationItemView>(R.id.people)
         people.setOnClickListener{
             replaceFragment(peopleFragment)
         }
 
-        var gift = findViewById<BottomNavigationItemView>(R.id.gift)
+        val gift = findViewById<BottomNavigationItemView>(R.id.gift)
         gift.setOnClickListener{
             replaceFragment(giftFragment)
         }

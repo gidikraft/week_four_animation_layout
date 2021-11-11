@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.weekfouranimation.Model
 import com.example.weekfouranimation.MyRecyclerViewAdapter
@@ -15,26 +17,38 @@ import com.example.weekfouranimation.ViewPagerAdapter
 
 class HomeFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         var view = inflater!!.inflate(R.layout.fragment_home, container, false)
-
+        // An array of images to be passed into the viewPager
         val images = listOf<Int>(
-            R.drawable.image1,
-            R.drawable.image2,
-            R.drawable.image3,
-            R.drawable.image4
+            R.drawable.victor,
+            R.drawable.images5,
+            R.drawable.images6,
+            R.drawable.images7
         )
-
+        //To connect the ViewPagerAdapter to the images it is to inflate into the view adapter
         val adapter = ViewPagerAdapter(images)
         view.findViewById<ViewPager2>(R.id.view_pager).adapter = adapter
+
+        //viewPager animation
+        var viewPager = view.findViewById<ViewPager2>(R.id.view_pager)
+        viewPager.adapter = ViewPagerAdapter(images)
+        viewPager.setPadding(80, 0, 80, 0)
+        viewPager.clipToPadding = false
+        viewPager.clipChildren = false
+        viewPager.offscreenPageLimit = 3
+        viewPager.getChildAt(0).overScrollMode = View.OVER_SCROLL_NEVER
+        //setting viewpager transformation
+        val viewPageTransformer = CompositePageTransformer()
+        viewPageTransformer.addTransformer(MarginPageTransformer(45))
+        viewPageTransformer.addTransformer { page, position ->
+            page.scaleY = 1 - (0.25f * kotlin.math.abs(position))
+        }
+        viewPager.setPageTransformer(viewPageTransformer)
 
         //MyRecyclerViewAdapter
         val arrayList = ArrayList<Model>()
