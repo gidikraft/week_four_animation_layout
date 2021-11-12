@@ -10,7 +10,14 @@ class ViewPagerAdapter (
 
     val images: List<Int>
     ): RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolder>() {
-        inner class ViewPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView )
+        inner class ViewPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView ) {
+
+            private val celebrantImageView: ImageView = itemView.findViewById(R.id.iv_pager)
+
+            fun bind(image: Int) {
+                celebrantImageView.setImageResource(image)
+            }
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view_pager, parent, false)
@@ -19,7 +26,7 @@ class ViewPagerAdapter (
 
         override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
             val curImage = images[position]
-            holder.itemView.findViewById<ImageView>(R.id.iv_pager).setImageResource(curImage)
+            holder.bind(curImage)
         }
 
         override fun getItemCount(): Int {

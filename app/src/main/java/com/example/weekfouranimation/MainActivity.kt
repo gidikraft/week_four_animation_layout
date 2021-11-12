@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         gift.setOnClickListener{
             replaceFragment(giftFragment)
         }
-
     }
 //function to replace fragment
     private fun replaceFragment(fragment: Fragment){
